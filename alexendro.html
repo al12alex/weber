@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mkau Inno Tech</title>
+    <style>
+        /* ... (Your existing styles) ... */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(to bottom, #FFFFE0, #90EE90, #FFE4E1, white);
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 20px;
+            color: rgb(255, 69, 0);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav li:hover .dropdown-content {
+            display: block;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .section .moving-text {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 25s linear infinite;
+            color: green;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .form-container {
+            width: 300px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .form-container label, .form-container input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .detail-text {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MAU INNO TECH</div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="showAction('settings')">Settings</a>
+                        <a href="#" onclick="showAction('feedback')">Feedback</a>
+                        <a href="#" onclick="showAction('profile')">Profile</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="showAction('aboutMkau')">About MAU</a>
+                        <a href="#">Developers Info</a>
+                        <a href="#">Office Info</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                    <div class="dropdown-content">
+                        <a href="#">Web Development</a>
+                        <a href="#">Software Development</a>
+                        <a href="#">Other Creativity</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Tutorials</a>
+                    <div class="dropdown-content">
+                        <a href="#">Video</a>
+                        <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+                        <a href="https://www.udemy.com/" target="_blank">Udemy</a>
+                        <a href="https://www.tpointtech.com/" target="_blank">JavaTPoint</a>
+                        <a href="https://www.udacity.com/" target="_blank">Udacity</a>
+                        <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a>
+                        <a href="https://graceacademy.net/" target="_blank">Greace Academy</a>
+                        <a href="https://www.mygreatlearning.com/" target="_blank">Great learning</a>
+                        <a href="#" onclick="showDetails('exercises-details'); return false;">Exercises</a>
+                        <a href="#">Exam</a>
+                        <a href="#">Quiz</a>
+                        <a href="#">Practice</a>
+                    </div>
+                </li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section" id="office">
+        <h2>Office Room</h2>
+        <img src="placeholder-office.jpg" alt="Office Room">
+        <div class="moving-text">Welcome to our innovative workspace!</div>
+        <p>Explore our collaborative environment.</p>
+        <button onclick="showDetails('office-details')">See Details</button>
+        <div id="office-details" class="detail-text">
+            </div>
+    </section>
+
+    <section class="section" id="exercises-details">
+        <h2>Exercises</h2>
+        <p>Explore our exercises</p>
+        <a href="https://www.w3schools.com/exercise/index.php" target="_blank">W3Schools Exercises</a>
+    </section>
+
+    <section class="section" id="register">
+        <h2>Register</h2>
+        <div class="form-container">
+            <form id="registerForm" onsubmit="return validateRegister()">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                    <option value="cs">CS</option>
+                    <option value="se">SE</option>
+                    <option value="it">IT</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="login">
+        <h2>Login</h2>
+        <div class="form-container">
+            <form id="loginForm" onsubmit="return validateLogin()">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="email">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    <section id="action-area" style="display:none">
+        <div id="settings-content" style="display:none">settings area</div>
+        <div id="feedback-content" style="display:none">feedback area</div>
+        <div id="profile-content" style="display:none">profile area</div>
+        <div id="aboutMkau-content" style="display:none">about mkau area</div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank">Facebook</a>
+            <a href="https://twitter.com/" class="fa fa-twitter" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/" class="fa fa-linkedin" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2024 Mkau Inno Tech. All rights reserved.</p>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function showDetails(detailId) {
+            const detailText = document.getElementById(detailId);
+            if (detailText.style.display === 'none' || detailText.style.display === '') {
+                detailText.style.display = 'block';
+            } else {
+                detailText.style.display = 'none';
+            }
+        }
+        function showAction(actionId){
+            const actionArea = document.getElementById("action-area");
+            actionArea.style.display = "block";
+            const actionContent = document.getElementById(actionId+"-content");
+            actionContent.style.display = "block";
+            const allActions = ["settings","feedback","profile","aboutMkau"];
+            allActions.filter(x=>x!=actionId).forEach(x=>{
+                document.getElementById(x+"-content").style.display="none";
+            })
+        }
+
+        function validateRegister() {
+            // ... (Your existing validation) ...
+        }
+
+        function validateLogin() {
+            // ... (Your existing validation) ...
+        }
+    </script>
+</body>
+</html>
